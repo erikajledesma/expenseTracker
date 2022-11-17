@@ -1,3 +1,14 @@
+# ExpenseTracker by SLP DevOps Team
+
+## Group Members:
+### Erika Ledesma
+
+
+## Roles & Contribution
+
+## Credit
+#### https://github.com/CodeEngineTechnology/ExpenseApp
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
