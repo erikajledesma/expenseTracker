@@ -6,6 +6,7 @@ import {Container, Input, Button, Label, Form, FormGroup, Table} from 'reactstra
 import {Link} from 'react-router-dom';
 import "react-datepicker/dist/react-datepicker.css";
 import Moment from 'react-moment';
+// import {v4 as uuid} from 'uuid';
 
 class Expenses extends Component {
 
@@ -14,7 +15,7 @@ class Expenses extends Component {
         expenseDate : new Date(),
         description : '',
         location : '',
-        categories : [3, 'School']
+        category : {id:2, name:'School'}
     }
 
     constructor(props){
@@ -33,7 +34,7 @@ class Expenses extends Component {
     }
 
     async handleSubmit(event) {
-        event.preventDefault();
+
         const item = this.state.item;
 
         await fetch(`/api/expenses`, {
@@ -44,6 +45,7 @@ class Expenses extends Component {
             },
             body : JSON.stringify(item),
         });
+        event.preventDefault();
         this.props.history.push("/expenses");
 
     }
@@ -62,11 +64,25 @@ class Expenses extends Component {
         let item = {...this.state.item};
         item.expenseDate = date;
         this.setState({item});
-        console.log(item);
 
     }
-
     
+    handleCatChange(category){
+        const target = category.target;
+        const value = target.value;
+        
+        let idx = category.target.selectedIndex;
+        let dataset = category.target.optionList[idx].text;
+
+        category = {...this.state.category};
+        category.id = value;
+        category.name = dataset;
+
+        let item = {...this.state.item};
+        item.category = category;
+        this.setState({item});
+    }
+
     async remove(id){
         await fetch(`/api/expenses/${id}`, {
             method: 'DELETE',
@@ -108,12 +124,12 @@ class Expenses extends Component {
                 )
     
         let rows =
-                Expenses.map(expense =>
+                Expenses.map((expense) =>
                     <tr key={expense.id}>
                         <td>{expense.description}</td>
                         <td>{expense.location}</td>
                         <td><Moment date= {expense.expenseDate} format="YYYY/MM/DD"/></td>
-                        <td>{expense.category.name}</td>
+                        <td>{expense.category?.name}</td>
                         <td><Button size="sm" color="danger" onClick={() => this.remove(expense.id)}>Delete</Button></td>
                     </tr>
 
@@ -124,23 +140,24 @@ class Expenses extends Component {
             <div>
                 <AppNav/>
                 <Container>
+                    
                     {title}
+                    
                     <Form onSubmit={this.handleSubmit}>
 
-                    <div className="row">
                         <FormGroup className="col-md-4 mb-3">
                             <Label for="description"></Label>
                             <Input type="description" name="description" id="description" placeholder= "Name" onChange={this.handleChange} autoComplete="name"/>
                         </FormGroup>
-                    </div>
 
                         <FormGroup>
                             <Label for="category">Category</Label>
                             <div>
-                            <select class="form-select" className="col-md-4 mb-3">
+                            <select name="form-select" className="col-md-4 mb-3" onChange={this.handleChange}>
                                 {optionList}
                             </select>
                             </div>
+                            
                         </FormGroup>
 
                         <FormGroup>
@@ -148,10 +165,12 @@ class Expenses extends Component {
                         <DatePicker selected={this.state.item.expenseDate}  onChange={this.handleDateChange} />
                     </FormGroup>
 
+                            <div className= "row">
                             <FormGroup className="col-md-4 mb-3">
                                 <Label for="location"></Label>
                                 <Input type="text" name="location" id="location" placeholder="Location" onChange={this.handleChange}/>
                             </FormGroup>
+                            </div>
     
 
                         <FormGroup>
@@ -166,11 +185,13 @@ class Expenses extends Component {
                     <h3>Expense List</h3>
                     <Table className="mt-4">
                         <thead>
-                            <th width="20%">Description</th>
-                            <th width="10%">Location</th>
-                            <th>Date</th>
-                            <th>Category</th>
-                            <th width="10%">Action</th>
+                            <tr>
+                                <th width="20%">Description</th>
+                                <th width="10%">Location</th>
+                                <th>Date</th>
+                                <th>Category</th>
+                                <th width="10%">Action</th>
+                            </tr>
 
                         </thead>
 
