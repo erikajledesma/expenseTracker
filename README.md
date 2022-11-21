@@ -5,9 +5,11 @@
 
 
 ## Roles & Contribution
+###Erika Ledesma: Project Co-Team Leader, Frontend/Backend Developer
 
 ## Credit
 #### https://github.com/CodeEngineTechnology/ExpenseApp
+#### Canva art by mcarlagela
 
 # Getting Started with Create React App
 
