@@ -5,7 +5,7 @@
 
 
 ## Roles & Contribution
-###Erika Ledesma: Project Co-Team Leader, Frontend/Backend Developer
+Erika Ledesma: Project Co-Team Leader, Frontend/Backend Developer
 
 ## Credit
 #### https://github.com/CodeEngineTechnology/ExpenseApp
