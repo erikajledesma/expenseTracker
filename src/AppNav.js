@@ -6,9 +6,9 @@ class AppNav extends Component {
     render() {
         return (
           <div>
-            <Navbar color="dark" dark expand="md">
-              <NavbarBrand href="/">ExpenseTracker</NavbarBrand>
-                <Nav className="ml-auto" navbar>
+            <Navbar color='light' light expand="md">
+              <NavbarBrand href="/"><img alt= "brand" width='80px' src= "/expenselogo.png"/></NavbarBrand>
+                <Nav className="ml-auto" color='black' navbar>
                   <NavItem>
                     <NavLink href="/">Home</NavLink>
                   </NavItem>
