@@ -9,7 +9,7 @@ class Home extends Component {
                 <AppNav/>
                 <h2 class="display-4"style={{display: 'flex', color: '#3d9c3a', justifyContent:'center', alignItems:'center', height: '100vh'}}>
                <img alt="people" src="/homepage.png"/>
-               Welcome to PayPath!
+               Welcome to WalletBuddy!
                </h2>
             </div>
         );

@@ -6,16 +6,15 @@ import {Container, Input, Button, Label, Form, FormGroup, Table} from 'reactstra
 import {Link} from 'react-router-dom';
 import "react-datepicker/dist/react-datepicker.css";
 import Moment from 'react-moment';
-// import {v4 as uuid} from 'uuid';
 
 class Expenses extends Component {
 
     emptyItem = {
-        id: '103',
+        id: 103,
         expenseDate : new Date(),
         description : '',
         location : '',
-        category : {id:2, name:'School'}
+        category : {id: 0, name:'Healthcare'}
     }
 
     constructor(props){
@@ -31,6 +30,7 @@ class Expenses extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleDateChange = this.handleDateChange.bind(this);
+        this.handleCatChange = this.handleCatChange.bind(this);
     }
 
     async handleSubmit(event) {
@@ -66,21 +66,21 @@ class Expenses extends Component {
         this.setState({item});
 
     }
-    
+
     handleCatChange(category){
-        const target = category.target;
-        const value = target.value;
-        
+
         let idx = category.target.selectedIndex;
-        let dataset = category.target.optionList[idx].text;
+        // let dataset = category.target.name;
 
         category = {...this.state.category};
-        category.id = value;
-        category.name = dataset;
+
+        category.id = idx;
+        category.name = idx;
 
         let item = {...this.state.item};
         item.category = category;
         this.setState({item});
+        console.log({item});
     }
 
     async remove(id){
@@ -153,7 +153,7 @@ class Expenses extends Component {
                         <FormGroup>
                             <Label for="category">Category</Label>
                             <div>
-                            <select name="form-select" className="col-md-4 mb-3" onChange={this.handleChange}>
+                            <select className="col-md-4 mb-3" onChange={this.handleCatChange}>
                                 {optionList}
                             </select>
                             </div>
