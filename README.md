@@ -6,6 +6,7 @@
 
 ## Roles & Contribution
 Erika Ledesma: Project Co-Team Leader, Frontend/Backend Developer
+Meghan Nguyen: Project Desginer for frontend framework and Slides
 
 ## Credit
 #### https://github.com/CodeEngineTechnology/ExpenseApp
