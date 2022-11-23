@@ -6,6 +6,7 @@
 
 ## Roles & Contribution
 Erika Ledesma: Project Co-Team Leader, Frontend/Backend Developer
+Bryan Gonzalez: Project Co-lead, managing objectives and to-dos of meetings
 
 ## Credit
 #### https://github.com/CodeEngineTechnology/ExpenseApp
