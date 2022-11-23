@@ -5,7 +5,7 @@
 
 
 ## Roles & Contribution
-Erika Ledesma: Project Co-Team Leader, Frontend/Backend Developer
+Erika Ledesma: Project Co-Team Leader, Frontend/Backend Developer\
 Meghan Nguyen: Project Desginer for frontend framework and Slides
 
 ## Credit
