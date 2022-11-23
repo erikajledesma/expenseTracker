@@ -2,6 +2,8 @@
 
 ## Group Members:
 ### Erika Ledesma
+### Meghan Nguyen
+### Bryan Gonzalez
 
 
 ## Roles & Contribution
